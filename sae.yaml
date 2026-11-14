@@ -1,0 +1,33 @@
+# SAE V3.4 project configuration. Replace placeholders; pin an exact framework SHA.
+sae_version: "3.4"
+project:
+  repository: "JohnnyZPiggy/FlatScout"
+  package: "flatscout"
+  scientific_goal: "Personal apartment-listing collection and ranking for EPFL/UNIL 2027 housing search"
+framework:
+  repository: "JohnnyZPiggy/SAE-Framework"
+  commit_sha: "4129001fffcb336f5203e4b0d6765d7a0ea3150c"
+  entrypoint: ".sae/README.md"
+roles:
+  scientist: "human"
+  architect: "claude"
+  mentor: "claude"
+  engineer: "codex"
+simplicity:
+  dispatch_requires: ["definition_of_done", "size_budget", "required_tests", "not_required"]
+  size_budgets_net_lines: {S: 50, M: 200, L: 500}
+  stop_when_over_budget_factor: 1.5
+  review_outcomes: ["ACCEPTED", "REQUEST_CHANGES", "REQUEST_SIMPLIFY"]
+  evidence_file_caps: {docs: 0, code: 3, compute: 10}
+collaboration:
+  task_hub: "github_issues"
+  actions_enabled: false
+  engineer_may_merge: false
+experiments:
+  devices: ["cpu"]
+  scientist_compute_approval_required: false
+  new_billing_requires_explicit_user_approval: true
+  max_active_colab_sessions: 1
+workflow:
+  modes: ["EXPLORE", "VALIDATE"]
+  max_self_repair_attempts_per_failure_class: 3
